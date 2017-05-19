@@ -1,0 +1,8 @@
+$('#book-list').append('<%= j render @books %>');
+<% if @books.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+  $('#load-more').remove();
+<% end %>
